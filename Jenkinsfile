@@ -1,8 +1,7 @@
 node {
 
     stage 'Checkout'
-
-    git branch: 'main', url: 'https://github.com/Bouhmid30/ezlearning1.git'   
+    git branch: 'main', credentialsId: 'git', url: 'https://github.com/Bouhmid30/ezlearning1.git'
     def mvnHome = tool 'M3'
     withMaven {
       sh "${mvnHome}/bin/mvn clean package -DskipTests"
