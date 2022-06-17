@@ -17,7 +17,6 @@ node {
     stage 'Build'
 
     //sh "${mvnHome}/bin/mvn clean package -DskipTests"
-    sh 'oc get pod -n ezlearning'
     sh 'oc start-build ezlearning-1-git --from-file=./target/platform-0.0.1-SNAPSHOT.jar -n ezlearning --follow'
 
 
