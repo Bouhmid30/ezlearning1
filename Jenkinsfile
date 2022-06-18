@@ -5,6 +5,7 @@ node {
     def mvnHome = tool 'M3'
     withMaven {
       sh "${mvnHome}/bin/mvn clean package -DskipTests"
+      sh "${mvnHome}/bin/mvn sonar:sonar -Dsonar.projectKey=ez-learning -Dsonar.host.url=https://sonarqube-jenkins.apps.ocp4.smartek.ae -Dsonar.login=sonar"
     } //
     // Get the maven tool
 
