@@ -15,7 +15,7 @@ node {
     
     stage 'SonarQube analysis'
     withSonarQubeEnv('sonarqube') { 
-            sh "${mvnHome}/bin/mvn sonar:sonar"
+            sh "${mvnHome}/bin/mvn sonar:sonar-Dsonar.projectKey=ez"
     }
 
     
