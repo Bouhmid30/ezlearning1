@@ -86,13 +86,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+	    <plugin>
+		    <groupId>org.sonarsource.scanner.maven</groupId>
+		    <artifactId>sonar-maven-plugin</artifactId>
+	    </plugin>
         </plugins>
     </build>
 	
-    <settings>
-	    <pluginGroups>
-		    <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
-	    </pluginGroups>
-    </settings>
 
 </project>
