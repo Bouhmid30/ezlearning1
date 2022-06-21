@@ -5,18 +5,21 @@ node {
     def mvnHome = tool 'M3'
     withMaven {
       sh "${mvnHome}/bin/mvn clean package -DskipTests"
-     // sh "${mvnHome}/bin/mvn sonar:sonar -Dsonar.projectKey=ez -Dsonar.host.url=http://sonarqube.jenkins.svc.cluster.local:9000 -Dsonar.login=3801bb5f4de2299af92a8129ac33891c2105b34a"
     } //
+    
+    stage 'Test code sonar'
+    sh "${mvnHome}/bin/mvn sonar:sonar -Dsonar.projectKey=ez -Dsonar.host.url=http://sonarqube-1.jenkins.svc.cluster.local:9000 -Dsonar.login=sqp_954f9b058cf24e19fd1625c98c22fdc34aa3d5fa"
+
     // Get the maven tool
 
     // ** NOTE: This 'M3' maven tool must be configured in the global configuration
 
     // def mvnHome = tool 'maven'
     
-    stage 'SonarQube analysis'
-    withSonarQubeEnv('sonarqube') { 
-            sh "${mvnHome}/bin/mvn sonar:sonar"
-    }
+    //stage 'SonarQube analysis'
+    //withSonarQubeEnv('sonarqube') { 
+            //sh "${mvnHome}/bin/mvn sonar:sonar"
+    //}
 
     
 
